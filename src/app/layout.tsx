@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DEEPLOL.GG | Elite League Analytics",
+  title: "LAS.GG | Elite League Analytics",
   description: "Advanced performance matrix and tag engine for League of Legends.",
 };
 

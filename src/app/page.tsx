@@ -20,13 +20,13 @@ export default function Home() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-primary)] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--accent-primary)]"></span>
             </span>
-            Motor DeepLOL en Línea
+            Motor LAS.GG en Línea
           </div>
 
           {/* MAIN LOGO TITULAR */}
           <div className="space-y-2">
             <h1 className="text-7xl md:text-[10rem] font-display tracking-tighter leading-none text-[var(--text-primary)] select-none">
-              DEEP<span className="text-[var(--accent-primary)] neon-text-primary">LOL</span>
+              LAS.GG<span className="text-[var(--accent-primary)] neon-text-primary">LOL</span>
             </h1>
             <p className="text-[var(--text-muted)] text-lg md:text-2xl font-display tracking-widest uppercase opacity-80">
               ANALÍTICA DE LEAGUE NIVEL PRO
@@ -35,7 +35,7 @@ export default function Home() {
 
           {/* SUBTITLE */}
           <p className="text-[var(--text-secondary)] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-medium pt-4">
-            No confíes en los números. Confía en la <span className="text-[var(--accent-primary)] font-black underline decoration-[var(--accent-primary)]/30 underline-offset-8">Identidad Neural</span>. La única plataforma que clasifica tu estilo de juego con el benchmark Z-Score de DeepLOL.
+            No confíes en los números. Confía en la <span className="text-[var(--accent-primary)] font-black underline decoration-[var(--accent-primary)]/30 underline-offset-8">Identidad Neural</span>. La única plataforma que clasifica tu estilo de juego con el benchmark Z-Score de LAS.GG.
           </p>
         </div>
 
@@ -79,11 +79,11 @@ export default function Home() {
       <footer className="mt-32 border-t border-[var(--border-subtle)] py-12 bg-[var(--overlay-bg)]">
         <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between text-[var(--text-muted)] gap-8">
           <div className="flex items-center gap-4">
-            <span className="text-xs font-display tracking-widest text-[var(--text-primary)]">DEEPLOL.GG</span>
+            <span className="text-xs font-display tracking-widest text-[var(--text-primary)]">LAS.GG</span>
             <span className="text-[10px] font-bold">© 2026 ALPHA v1.02</span>
           </div>
           <p className="text-[10px] font-black tracking-widest uppercase text-center max-w-md">
-            DeepLOL no está avalado por Riot Games y no refleja los puntos de vista u opiniones de Riot Games.
+            LAS.GG no está avalado por Riot Games y no refleja los puntos de vista u opiniones de Riot Games.
           </p>
           <div className="flex gap-6">
             <span className="material-symbols-outlined text-xl hover:text-[var(--text-primary)] cursor-pointer transition-colors">terminal</span>
