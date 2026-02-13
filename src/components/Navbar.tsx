@@ -7,7 +7,7 @@ import { ThemeToggle } from './ThemeToggle';
 export const Navbar = () => {
     return (
         <nav className="fixed top-0 left-0 right-0 h-20 bg-[var(--glass-bg)] backdrop-blur-xl z-[100] border-b border-[var(--border-subtle)]">
-            <div className="max-w-[1700px] mx-auto h-full px-8 flex items-center justify-between gap-12">
+            <div className="max-w-[1700px] mx-auto h-full px-4 md:px-8 flex items-center justify-between gap-12">
                 {/* LOGO */}
                 <Link href="/" className="flex items-center gap-3 group">
                     <div className="w-10 h-10 bg-[var(--accent-primary)] rounded-xl flex items-center justify-center shadow-[0_0_20px_var(--neon-primary-glow)] group-hover:scale-110 transition-transform">

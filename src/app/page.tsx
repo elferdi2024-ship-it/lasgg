@@ -4,14 +4,14 @@ import { SearchBar } from '@/components/SearchBar';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--bg-root)] text-[var(--text-primary)] overflow-hidden relative selection:bg-[var(--accent-primary)]/30 py-32">
+    <main className="min-h-screen bg-[var(--bg-root)] text-[var(--text-primary)] overflow-hidden relative selection:bg-[var(--accent-primary)]/30 py-20 md:py-32">
 
       {/* AMBIENT LIGHTING */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-[var(--accent-primary)]/5 rounded-full blur-[150px] -z-10 opacity-60 pointer-events-none" />
       <div className="absolute -bottom-48 -right-48 w-[800px] h-[800px] bg-[var(--accent-loss)]/5 rounded-full blur-[150px] -z-10 opacity-30 pointer-events-none" />
 
       {/* HERO SECTION */}
-      <div className="container mx-auto px-8 flex flex-col items-center justify-center relative z-10">
+      <div className="container mx-auto px-4 md:px-8 flex flex-col items-center justify-center relative z-10">
 
         <div className="text-center mb-16 space-y-8 max-w-5xl">
           {/* SYSTEM STATUS */}
@@ -25,7 +25,7 @@ export default function Home() {
 
           {/* MAIN LOGO TITULAR */}
           <div className="space-y-2">
-            <h1 className="text-7xl md:text-[10rem] font-display tracking-tighter leading-none text-[var(--text-primary)] select-none">
+            <h1 className="text-5xl md:text-[10rem] font-display tracking-tighter leading-none text-[var(--text-primary)] select-none">
               LAS.GG<span className="text-[var(--accent-primary)] neon-text-primary">LOL</span>
             </h1>
             <p className="text-[var(--text-muted)] text-lg md:text-2xl font-display tracking-widest uppercase opacity-80">
@@ -40,7 +40,7 @@ export default function Home() {
         </div>
 
         {/* SEARCH BAR COMPONENT */}
-        <div className="w-full max-w-3xl mb-32 group">
+        <div className="w-full max-w-3xl mb-16 md:mb-32 group">
           <div className="p-2 transition-all duration-700 bg-[var(--overlay-bg)] rounded-3xl border border-[var(--border-subtle)] hover:border-[var(--accent-primary)]/20 hover:bg-[var(--bg-card-soft)] shadow-2xl relative">
             <SearchBar />
             {/* Glow effect on hover */}
