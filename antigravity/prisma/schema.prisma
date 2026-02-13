@@ -1,0 +1,102 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Summoner {
+  puuid         String        @id
+  riotId        String
+  tagLine       String
+  level         Int
+  profileIconId Int
+  region        String
+  lastUpdated   DateTime      @default(now())
+  participants  Participant[]
+  tags          PlayerTag[]
+
+  @@unique([riotId, tagLine])
+  @@index([puuid])
+}
+
+model Match {
+  matchId      String        @id
+  gameMode     String
+  gameDuration Int
+  gameCreation BigInt
+  participants Participant[]
+
+  @@index([matchId])
+}
+
+model Participant {
+  id           String   @id @default(cuid())
+  matchId      String
+  puuid        String
+  championId   Int
+  championName String
+  teamId       Int
+  win          Boolean
+  
+  // Statistics
+  kills        Int
+  deaths       Int
+  assists      Int
+  
+  totalDamageDealtToChampions Int
+  damageDealtToTurrets        Int
+  
+  visionScore                 Int
+  goldEarned                  Int
+  totalMinionsKilled          Int
+  neutralMinionsKilled        Int
+  timePlayed                  Int
+  
+  // JSON fields for complex data
+  items  Json // Array of items
+  runas  Json // Primary and secondary rune paths
+  
+  match    Match    @relation(fields: [matchId], references: [matchId])
+  summoner Summoner @relation(fields: [puuid], references: [puuid])
+
+  @@index([puuid, matchId])
+}
+
+model ChampionBenchmark {
+  id          String   @id @default(cuid())
+  championId  Int
+  championName String
+  tier        String   // e.g. 'EMERALD', 'DIAMOND'
+  role        String   // e.g. 'TOP', 'JUNGLE'
+  
+  avgDpm      Float
+  stdDevDpm   Float
+  
+  avgVision   Float
+  stdDevVision Float
+  
+  avgGoldPerMin Float
+  stdDevGoldPerMin Float
+  
+  avgCsPerMin Float
+  stdDevCsPerMin Float
+
+  @@unique([championId, tier, role])
+}
+
+model PlayerTag {
+  id          String   @id @default(cuid())
+  puuid       String
+  tagId       String   // e.g. 'LANE_BULLY'
+  label       String
+  severity    String   // 'LOW', 'MEDIUM', 'HIGH'
+  description String
+  createdAt   DateTime @default(now())
+
+  summoner    Summoner @relation(fields: [puuid], references: [puuid])
+
+  @@index([puuid])
+}

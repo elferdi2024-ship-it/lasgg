@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Summoner {
+  puuid         String        @id
+  riotId        String
+  region        String
+  profileIconId Int
+  summonerLevel Int
+  revisionDate  BigInt
+  lastUpdated   DateTime      @default(now())
+  matches       Participant[]
+  tags          PlayerTag[]
+
+  @@index([riotId])
+}
+
+model Match {
+  matchId      String        @id
+  gameCreation BigInt
+  gameDuration Int
+  gameMode     String
+  queueId      Int
+  participants Participant[]
+}
+
+model Participant {
+  id                          String   @id @default(uuid())
+  matchId                     String
+  puuid                       String
+  championId                  Int
+  championName                String
+  teamId                      Int
+  win                         Boolean
+  role                        String
+  lane                        String
+  kills                       Int
+  deaths                      Int
+  assists                     Int
+  kda                         Float
+  totalDamageDealtToChampions Int
+  totalDamageTaken            Int
+  damageSelfMitigated         Int
+  goldEarned                  Int
+  totalMinionsKilled          Int
+  csPerMinute                 Float
+  visionScore                 Int
+  wardsPlaced                 Int
+  detectorWardsPlaced         Int
+  turretKills                 Int
+  damageDealtToTurrets        Int
+  dragonKills                 Int
+  baronKills                  Int
+  match                       Match    @relation(fields: [matchId], references: [matchId])
+  summoner                    Summoner @relation(fields: [puuid], references: [puuid])
+
+  @@unique([matchId, puuid])
+}
+
+model PlayerTag {
+  id          String   @id @default(uuid())
+  puuid       String
+  label       String
+  severity    String
+  description String?
+  score       Float
+  createdAt   DateTime @default(now())
+  summoner    Summoner @relation(fields: [puuid], references: [puuid])
+}
+
+model ChampionBenchmark {
+  id              String   @id @default(uuid())
+  championId      Int
+  tier            String
+  role            String
+  avgDpm          Float
+  stdDevDpm       Float
+  avgKda          Float
+  stdDevKda       Float
+  avgVision       Float
+  stdDevVision    Float
+  avgCsMin        Float
+  stdDevCs        Float
+  avgTurretDmg    Float
+  stdDevTurretDmg Float
+  updatedAt       DateTime @default(now())
+
+  @@unique([championId, tier, role])
+}
