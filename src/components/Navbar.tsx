@@ -11,7 +11,7 @@ export const Navbar = () => {
                 {/* LOGO */}
                 <Link href="/" className="flex items-center gap-3 group">
                     <div className="w-10 h-10 bg-[var(--accent-primary)] rounded-xl flex items-center justify-center shadow-[0_0_20px_var(--neon-primary-glow)] group-hover:scale-110 transition-transform">
-                        <span className="text-[var(--bg-root)] font-black text-xl italic">DL</span>
+                        <span className="text-[var(--bg-root)] font-black text-sm italic tracking-tighter">LAS</span>
                     </div>
                     <span className="text-2xl font-display text-[var(--text-primary)] tracking-tighter">LAS.GG</span>
                 </Link>
