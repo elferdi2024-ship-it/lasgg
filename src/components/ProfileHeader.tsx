@@ -50,7 +50,14 @@ export const ProfileHeader = ({ data, onUpdate }: { data: SummonerProfileData, o
                 alt="League Art"
                 className="w-full h-80 object-cover opacity-30 group-hover:scale-105 transition-transform duration-1000"
                 src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${bgChamp}_0.jpg`}
-            />
+
+
+                {/* FAVORITES STAR (Top Right) */}
+            <button className="absolute top-6 right-6 z-30 group/star focus:outline-none transition-transform active:scale-90">
+                <span className="material-symbols-outlined text-4xl md:text-5xl text-[var(--text-disabled)] group-hover/star:text-[var(--accent-primary)] group-hover/star:scale-110 transition-all duration-300 group-hover/star:neon-glow-primary group-hover/star:animate-pulse">
+                    star
+                </span>
+            </button>
 
             {/* 2. CONTENT OVERLAY */}
             <div className="absolute inset-0 z-20 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
@@ -73,7 +80,6 @@ export const ProfileHeader = ({ data, onUpdate }: { data: SummonerProfileData, o
                             <h1 className="text-4xl md:text-6xl font-display text-[var(--text-primary)] uppercase leading-none tracking-tighter">
                                 {data.profile.gameName} <span className="text-[var(--text-primary)]/30 text-2xl md:text-4xl">#{data.profile.tagLine}</span>
                             </h1>
-                            <span className="material-symbols-outlined text-[var(--accent-primary)] text-4xl fill-1 drop-shadow-[0_0_15px_var(--neon-primary-glow)] hidden md:block">star</span>
                         </div>
 
                         <div className="flex flex-wrap justify-center md:justify-start gap-2 max-w-xl">
